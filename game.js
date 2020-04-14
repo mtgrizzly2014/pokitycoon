@@ -160,24 +160,24 @@ function updateCell(id, value) {
 // Watch for updated values.
 $('#ticket-price-input').change(function() {
 	console.log("Ticket price changed.");
-  update();
+	update();
 });
 
 $('#aircraft-speed-input').change(function() {
 	console.log("Average speeed changed.");
-  update();
+	update();
 });
 
 $('#number-of-trips-input').change(function() {
 	console.log("Number of trips changed.");
-  update();
+	update();
 });
 
 //On Page Load.
 $(document).ready(function() {
-		drawFuelChart();
-		drawDemandChart();
-    update();
+	drawFuelChart();
+	drawDemandChart();
+	update();
 });
 
 var chartColors = {
@@ -224,10 +224,10 @@ function drawFuelChart() {
 			text: 'Fuel Consumption (kg per hour)'
 		},
 		elements: {
-      point:{
-          radius: 0
-      }
-    },
+			point:{
+				radius: 0
+			}
+		},
 		tooltips: {
 			mode: 'index',
 			intersect: false,
@@ -238,36 +238,36 @@ function drawFuelChart() {
 		},
 		scales: {
 			xAxes: [{
-          display: true,
-					scaleLabel: {
-						display: true,
-						labelString: 'Speed (km/h)'
-					},
-          ticks: {
-            min: 0,
-						max: 100,
-						stepSize: 25
-          }
-      }],
-      yAxes: [{
-      		display: true,
-      		scaleLabel: {
-						display: true,
-						labelString: 'Fuel Consumption (kg/h)'
-					},
-          ticks: {
-          	min: 0,
-          	max: 120,
-						maxTicksLimit: 7
-          }
-      }]
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Speed (km/h)'
+				},
+				ticks: {
+					min: 0,
+					max: 100,
+					stepSize: 25
+				}
+			}],
+			yAxes: [{
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Fuel Consumption (kg/h)'
+				},
+				ticks: {
+					min: 0,
+					max: 120,
+					maxTicksLimit: 7
+				}
+			}]
 		}
 	};
 
 	var myChart = new Chart(ctx, {
-	    type: 'line',
-	    data: data,
-	    options: options
+		type: 'line',
+		data: data,
+		options: options
 	});
 }
 
@@ -307,10 +307,10 @@ function drawDemandChart() {
 			text: 'Demand vs Ticket Price'
 		},
 		elements: {
-      point:{
-          radius: 0
-      }
-    },
+			point:{
+				radius: 0
+			}
+		},
 		tooltips: {
 			mode: 'index',
 			intersect: false,
@@ -321,35 +321,34 @@ function drawDemandChart() {
 		},
 		scales: {
 			xAxes: [{
-          display: true,
-					scaleLabel: {
-						display: true,
-						labelString: 'Ticket Price'
-					},
-          ticks: {
-            min: 0,
-						max: 500,
-						stepSize: 50
-          }
-      }],
-      yAxes: [{
-      		scaleLabel: {
-						display: true,
-						labelString: 'Demand'
-					},
-          ticks: {
-          	min: 0,
-          	max: 150,
-						maxTicksLimit: 5
-          }
-      }]
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Ticket Price'
+				},
+				ticks: {
+					min: 0,
+					max: 500,
+					stepSize: 50
+				}
+			}],
+			yAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Demand'
+				},
+				ticks: {
+					min: 0,
+					max: 150,
+					maxTicksLimit: 5
+				}
+			}]
 		}
 	};
 
 	var myChart = new Chart(ctx, {
-	    type: 'line',
-	    data: data,
-	    options: options
+		type: 'line',
+		data: data,
+		options: options
 	});
 }
-
