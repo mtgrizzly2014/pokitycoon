@@ -191,10 +191,8 @@ var chartColors = {
 }
 
 function drawFuelChart() {
-	var fuelLabels = [];
 	var fuelData = [];
 	for(var i = 0; i <= 100; i++) {
-		fuelLabels.push(i);
 		fuelData.push({
 			x : i,
 			y: Math.pow(i, 2) * K_PARAM + MIN_FUEL_CONSUMPTION
@@ -206,6 +204,7 @@ function drawFuelChart() {
 		label: 'Fuel',
 		backgroundColor: chartColors.red,
 		borderColor: chartColors.red,
+		borderWidth: 5,
 		data: fuelData,
 		fill: false,
 	}];
@@ -213,7 +212,6 @@ function drawFuelChart() {
 
 
 	data = {
-		labels: fuelLabels,
 		datasets: datasets
 	};
 
@@ -221,7 +219,9 @@ function drawFuelChart() {
 		responsive: true,
 		title: {
 			display: true,
-			text: 'Fuel Consumption (kg per hour)'
+			text: 'Fuel Consumption (kg per hour)',
+			fontSize: 16,
+      fontStyle: 'normal'
 		},
 		elements: {
 			point:{
@@ -229,19 +229,24 @@ function drawFuelChart() {
 			}
 		},
 		tooltips: {
-			mode: 'index',
+			mode: 'x',
 			intersect: false,
 		},
 		hover: {
 			mode: 'nearest',
-			intersect: true
+			intersect: false
 		},
+    legend: {
+      display: false
+    },
 		scales: {
 			xAxes: [{
 				display: true,
+				type: 'linear',
 				scaleLabel: {
 					display: true,
-					labelString: 'Speed (km/h)'
+					labelString: 'Speed (km/h)',
+					fontSize: 14
 				},
 				ticks: {
 					min: 0,
@@ -253,12 +258,13 @@ function drawFuelChart() {
 				display: true,
 				scaleLabel: {
 					display: true,
-					labelString: 'Fuel Consumption (kg/h)'
+					labelString: 'Fuel Consumption (kg/h)',
+					fontSize: 14
 				},
 				ticks: {
 					min: 0,
-					max: 120,
-					maxTicksLimit: 7
+					max: 125,
+					stepSize: 25
 				}
 			}]
 		}
@@ -272,12 +278,10 @@ function drawFuelChart() {
 }
 
 function drawDemandChart() {
-	var demandLabels = [];
 	var demandData = [];
 	var v;
 	for(var i = 0; i <= 100; i++) {
 		v = i * 5;
-		demandLabels.push(v);
 		demandData.push({
 			x : v,
 			y: Math.max(Math.round(v * PRICE_ELASTICITY + DEMAND_AT_ZERO, 0), 0)
@@ -289,14 +293,13 @@ function drawDemandChart() {
 		label: 'Demand',
 		backgroundColor: chartColors.blue,
 		borderColor: chartColors.blue,
+		borderWidth: 5,
+		lineTension: 0.8,
 		data: demandData,
 		fill: false,
 	}];
 
-
-
 	data = {
-		labels: demandLabels,
 		datasets: datasets
 	};
 
@@ -304,7 +307,9 @@ function drawDemandChart() {
 		responsive: true,
 		title: {
 			display: true,
-			text: 'Demand vs Ticket Price'
+			text: 'Demand vs Ticket Price',
+			fontSize: 16,
+			fontStyle: 'normal'
 		},
 		elements: {
 			point:{
@@ -312,35 +317,41 @@ function drawDemandChart() {
 			}
 		},
 		tooltips: {
-			mode: 'index',
+			mode: 'x',
 			intersect: false,
 		},
 		hover: {
-			mode: 'nearest',
-			intersect: true
+			mode: 'x',
+			intersect: false
 		},
+    legend: {
+      display: false
+    },
 		scales: {
 			xAxes: [{
 				display: true,
+				type: 'linear',
 				scaleLabel: {
 					display: true,
-					labelString: 'Ticket Price'
+					labelString: 'Ticket Price',
+					fontSize: 14
 				},
 				ticks: {
 					min: 0,
 					max: 500,
-					stepSize: 50
+					stepSize: 100
 				}
 			}],
 			yAxes: [{
 				scaleLabel: {
 					display: true,
-					labelString: 'Demand'
+					labelString: 'Demand',
+					fontSize: 14
 				},
 				ticks: {
 					min: 0,
 					max: 150,
-					maxTicksLimit: 5
+					stepSize: 50
 				}
 			}]
 		}
