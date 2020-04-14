@@ -20,7 +20,7 @@ var gameData = {
   'totalFuelConsAircraft' : 0,
   'totalTurnaroundTime' : 0,
   'totalTravelTime' : 0,
-  'totalOpertaionsTime' : 0,
+  'totalOperationsTime' : 0,
   'aircraftOperatingCost' : 0,
   'totalOperatingCost' : 0,
   'fixedCost' : 0,
@@ -42,7 +42,7 @@ var viewMap = {
   'totalFuelConsAircraft' : '#r-fuel-consumption-aircraft',
   'totalTurnaroundTime'   : '#r-turnaround-time',
   'totalTravelTime'       : '#r-travel-time',
-  'totalOpertaionsTime'   : '#r-operations-time',
+  'totalOperationsTime'   : '#r-operations-time',
   'aircraftOperatingCost' : '#r-aircraft-operating-cost',
   'totalOperatingCost'    : '#r-total-operating-cost',
   'fixedCost'             : '#r-fixed-cost',
@@ -62,7 +62,7 @@ function update() {
 function calculate(u, d) {
   d.travelTimeAircraft = TRIP_DISTANCE / u.averageSpeed;
 
-  d.fuelConsHr = Math.pow(u.averageSpeed, 2) * K_PARAM + MIN_FUEL_CONSUMPTION;
+  d.fuelConsHr = calcFuelConsumption(u.averageSpeed);
 
   d.totalFuelConsAircraft = d.travelTimeAircraft * d.fuelConsHr;
 
@@ -70,7 +70,7 @@ function calculate(u, d) {
 
   d.totalTravelTime = d.travelTimeAircraft * 2 * u.numTrips;
 
-  d.totalOpertaionsTime = d.totalTravelTime + d.totalTurnaroundTime;
+  d.totalOperationsTime = d.totalTravelTime + d.totalTurnaroundTime;
 
   d.aircraftOperatingCost = d.totalFuelConsAircraft * FUEL_COST;
 
@@ -144,7 +144,7 @@ function checkForErrors(u, d) {
     errors.push('Number of flights must be a whole number!');
   }
 
-  if(d.totalOpertaionsTime > 24) {
+  if(d.totalOperationsTime > 24) {
     errors.push("Can't do this many round trips in a day!");
   }
 
@@ -195,7 +195,7 @@ function drawFuelChart() {
   for(var i = 0; i <= 100; i++) {
     fuelData.push({
       x : i,
-      y: Math.pow(i, 2) * K_PARAM + MIN_FUEL_CONSUMPTION
+      y: calcFuelConsumption(i)
     });
   }
 
@@ -362,4 +362,8 @@ function drawDemandChart() {
     data: data,
     options: options
   });
+}
+
+function calcFuelConsumption(speed) {
+  return Math.pow(speed, 2) * K_PARAM + MIN_FUEL_CONSUMPTION;
 }
