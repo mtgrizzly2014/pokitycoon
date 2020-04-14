@@ -68,7 +68,7 @@ function calculate(u, d) {
 
 	d.totalTurnaroundTime = 2 * u.numTrips * TURNAROUND_TIME;
 
-	d.totalTravelTime = d.travelTimeAircraft * u.numTrips;
+	d.totalTravelTime = d.travelTimeAircraft * 2 * u.numTrips;
 
 	d.totalOpertaionsTime = d.totalTravelTime + d.totalTurnaroundTime;
 
