@@ -164,7 +164,7 @@ $('#ticket-price-input').change(function() {
 });
 
 $('#aircraft-speed-input').change(function() {
-	console.log("Average speeed changed.");
+	console.log("Aircraft speeed changed.");
 	update();
 });
 
