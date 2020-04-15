@@ -229,8 +229,16 @@ function drawFuelChart() {
       }
     },
     tooltips: {
-      mode: 'x',
+      mode: 'nearest',
       intersect: false,
+      callbacks: {
+        title: function(tooltipItem, data) {
+          return ('Speed: ' + parseFloat(tooltipItem[0].label).toFixed(1) + ' km/h');
+        },
+        label: function(tooltipItem, data) {
+          return ('Fuel flow: ' + parseFloat(tooltipItem.value).toFixed(1) + ' kg/h');
+        }
+      }
     },
     hover: {
       mode: 'nearest',
@@ -290,7 +298,7 @@ function drawDemandChart() {
 
   var ctx = document.getElementById('demand-chart').getContext('2d');
   var datasets = [{
-    label: 'Demand',
+    label: 'Demand (# of Pokis)',
     backgroundColor: chartColors.blue,
     borderColor: chartColors.blue,
     borderWidth: 5,
@@ -317,8 +325,16 @@ function drawDemandChart() {
       }
     },
     tooltips: {
-      mode: 'x',
+      mode: 'nearest',
       intersect: false,
+      callbacks: {
+        title: function(tooltipItem, data) {
+          return ('Price: ' + parseInt(tooltipItem[0].label) + ' pd');
+        },
+        label: function(tooltipItem, data) {
+          return ('Demand: ' + parseInt(tooltipItem.value) + ' pokis');
+        }
+      }
     },
     hover: {
       mode: 'x',
@@ -333,7 +349,7 @@ function drawDemandChart() {
         type: 'linear',
         scaleLabel: {
           display: true,
-          labelString: 'Ticket Price',
+          labelString: 'Ticket Price (pd)',
           fontSize: 14
         },
         ticks: {
@@ -345,7 +361,7 @@ function drawDemandChart() {
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Demand',
+          labelString: 'Demand (# of pokis)',
           fontSize: 14
         },
         ticks: {
