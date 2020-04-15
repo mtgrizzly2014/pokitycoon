@@ -8,8 +8,8 @@ env:
   # STAGING_REPO example: trees-and-airlines/trees-and-airlines.github.io
   # needs to be added as a 'secret' under repository settings.
   STAGING_REPO: ${{ secrets.STAGING_REPO }}
-  RELEASE_URL: "https://trees-and-airlines.github.io/releases" 
-  COMMIT_URL: "https://github.com/trees-and-airlines/pokitycoon/commit"
+  RELEASE_URL: "https://arrogantfool.github.io/pokitycoon/releases" 
+  COMMIT_URL: "https://github.com/arrogantfool/pokitycoon/commit"
 
 jobs:
   deploy:
