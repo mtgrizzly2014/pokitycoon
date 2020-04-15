@@ -1,0 +1,34 @@
+name: Deploy to staging
+
+on:
+  push:
+    branches:
+      - '*'
+env:
+  # STAGING_REPO example: trees-and-airlines/trees-and-airlines.github.io
+  # needs to be added as a 'secret' under repository settings.
+  STAGING_REPO: ${{ secrets.STAGING_REPO }}
+  RELEASE_URL: "https://trees-and-airlines.github.io/releases" 
+  COMMIT_URL: "https://github.com/trees-and-airlines/pokitycoon/commit"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks out this repository.
+    - uses: actions/checkout@v2
+      with:
+        path: branch
+
+    # Check out the stagin repository.
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ env.STAGING_REPO }}
+        path: stage
+        token: ${{ secrets.token }}
+    
+    # Rum the deployment script. 
+    - name: Run deployment script 
+      run: ./branch/scripts/deploy-stage.sh 
+
