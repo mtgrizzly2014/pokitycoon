@@ -1,0 +1,4 @@
+.*
+scripts
+LICENSE
+README.md
