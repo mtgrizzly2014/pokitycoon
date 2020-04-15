@@ -292,7 +292,7 @@ function drawDemandChart() {
     v = i * 5;
     demandData.push({
       x : v,
-      y: Math.max(Math.round(v * PRICE_ELASTICITY + DEMAND_AT_ZERO, 0), 0)
+      y: calcDemand(v)
     });
   }
 
@@ -382,4 +382,8 @@ function drawDemandChart() {
 
 function calcFuelConsumption(speed) {
   return Math.pow(speed, 2) * K_PARAM + MIN_FUEL_CONSUMPTION;
+}
+
+function calcDemand(price) {
+  return Math.max(Math.round(price * PRICE_ELASTICITY + DEMAND_AT_ZERO, 0), 0);
 }
