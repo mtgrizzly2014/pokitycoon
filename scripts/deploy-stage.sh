@@ -27,7 +27,7 @@ rsync -avr --exclude-from='branch/scripts/deploy-exclude.txt' branch/ "$path"
 
 echo "--- Update RELEASE.md ---"
 release_file="stage/RELEASE.md"
-release_url="${RELEASE_URL}/${release_id}/"
+release_url="${RELEASE_URL}/${release_id}/index.html"
 commit_url="${COMMIT_URL}/${GITHUB_SHA}"
 release_line="* $(date -u) [[${release_id}](${release_url})] [[commit](${commit_url})]"
 touch "$release_file"
