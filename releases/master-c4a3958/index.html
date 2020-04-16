@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>PokiTycoon Version 0.001</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">PokiTycoon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Introduction <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="game.html">Game</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Introduction -->
+      <div class="jumbotron">
+        <!-- <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        <h2>Storyline</h2>
+        <p>School's out for summer, and Island Airport (ILA) has just opened. Every poki
+        wants to travel out for some sun and fun... if the price is right! But the school
+        season is crazy in Pokiland - summer is only FIVE days long!</p>
+
+        <h2>Goal for Each Airline</h2>
+        <p>Be the airline with the most total cash at the end of the five-day summer
+        season. And oh: don't go bankrupt!</p>
+
+        <h2>Gameplay</h2>
+        <p>There will be five rounds of play: one for each of the five days.
+        Each airline has the following at the start of Day 1:</p>
+        <ul>
+          <li>5,000.00  pd (Pokidollars - currency)</li>
+          <li>1 aircraft</li>
+          <li>5 seats per aircraft</li>
+        </ul>
+
+        <p>Each day lasts 24 hours.</p>
+
+        <p>For each round, each airline provides the following as inputs:</p>
+        <ol>
+          <li>Ticket price per seat, in pd</li>
+          <li>Aircraft average speed, in kilometers per hour</li>
+          <li>Number of round trips (there and back) per day</li>
+        </ol>
+
+        <p>After all airlines provide inputs, the following will be calculated for each airline:</p>
+
+        <ol>
+          <li>Seats sold in the round</li>
+          <li>Revenue earned in the round</li>
+          <li>Total cash on hand</li>
+        </ol>
+
+        <h2>Airline Operating Costs</h2>
+        <ul>
+          <li>1,000.00  pd in fixed costs per day</li>
+          <li>10.00 pd per kilogram of fuel</li>
+        </ul>
+
+        <h2>Origin-Destination Pair Info</h2>
+        <ul>
+          <li>100 kilometers between Mainland Airport (MLA) and Island Airport (ILA)</li>
+        </ul>
+
+        <h2>Aircraft Info</h2>
+        <ul>
+          <li>100 km per hour top speed</li>
+          <li>30  km per hour stall speed</li>
+          <li>5 seats per aircraft</li>
+          <li>1.0 hours between flights needed for turnaround</li>
+        </ul>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm">
+          <canvas id="fuel-consumption-chart" height="200"></canvas>
+        </div>
+        <div class="col-sm">
+          <canvas id="demand-chart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <script src="game.js" type="text/javascript"></script>
+  </body>
+</html>
