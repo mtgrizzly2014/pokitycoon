@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - '*'
+    paths-ignore:
+      - 'releases/**'
+      - 'RELEASE.md'
 env:
   # STAGING_REPO example: trees-and-airlines/trees-and-airlines.github.io
   # needs to be added as a 'secret' under repository settings.
